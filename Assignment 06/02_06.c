@@ -46,7 +46,8 @@
 	Output Description:
 	-> Processor Informations (Vendor ID, Model Name and Cache Size in MB)
 	-> Kernel Name, Kernel Release and Operating System Name.
-	-> The amount of memory configured into this computer and Free Memory Amount of time since the system was last booted (In Hours, Minutes, Seconds)
+	-> The amount of memory configured into this computer and Free Memory 
+	-> Amount of time since the system was last booted (In Hours, Minutes, Seconds)
 */
 
 /*
