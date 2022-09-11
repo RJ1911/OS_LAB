@@ -223,21 +223,32 @@ int main(int argc, char *argv[argc + 1])
 	printf("***Program executes infinite loop!***\nEnter <ctrl+c> or <ctrl+\\> whenever you want to stop execution!\n");
 	sleep(2);
 
+	/* file descriptor */
+	int fd;
+
+	/*opening file in read + write mode */
+	fd = open(fileName, O_RDWR);
+
+	/* file open error */
+	if (fd < 0)
+	{
+		perror("Unable to open file");
+		exit(1);
+	}
+
+	/* Mapping file in the virtual address using mmap() */
+	char *file_in_memory = mmap(NULL, file_stat.st_size, PROT_READ, MAP_SHARED, fd, 0);
+
+	/* In case mapping fails MAP_FAILED is returned */
+	if (file_in_memory == MAP_FAILED)
+	{
+		perror("Mapping Error : ");
+		exit(1);
+	}
+
 	/* infinite while loop */
 	while (1)
 	{
-		/* file descriptor */
-		int fd;
-
-		/*opening file*/
-		fd = open(fileName, O_RDWR);
-
-		/* file open error */
-		if (fd < 0)
-		{
-			perror("Unable to open file");
-			exit(1);
-		}
 
 		/* generating random number for offset */
 		long long int offset = random_number_generator(fileSize);
@@ -282,19 +293,6 @@ int main(int argc, char *argv[argc + 1])
 			printf("Written data into file = %lld at offset = %lld ", data_at_offset, offset);
 		}
 
-		/* Mapping file in the virtual address using mmap() */
-		char *file_in_memory = mmap(NULL, file_stat.st_size, PROT_READ, MAP_SHARED, fd, 0);
-
-		/* In case mapping fails MAP_FAILED is returned */
-		if (file_in_memory == MAP_FAILED)
-		{
-			perror("Mapping Error : ");
-			exit(1);
-		}
-
-		/* closing file , after mapping successfully file can be closed */
-		close(fd);
-
 		/*verifying data written in file earlier and value read from file now */
 		printf("\nRead data from mapped file = ");
 		for (int i = 0; str[i] != '\0'; i++)
@@ -310,14 +308,18 @@ int main(int argc, char *argv[argc + 1])
 		}
 		printf(" at offset = %lld ", offset);
 		printf(" Verification : Successful \n\n");
-
-		/* Unmapping file */
-		int unmaping_file = munmap(file_in_memory, file_stat.st_size);
-		if (unmaping_file < 0)
-		{
-			perror("Unmapping error : ");
-			exit(1);
-		}
 	}
+
+	/* closing file , after mapping successfully file can be closed */
+	close(fd);
+
+	/* Unmapping file */
+	int unmaping_file = munmap(file_in_memory, file_stat.st_size);
+	if (unmaping_file < 0)
+	{
+		perror("Unmapping error : ");
+		exit(1);
+	}
+
 	return 0;
 }
