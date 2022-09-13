@@ -47,7 +47,11 @@
 	-> Processor Informations (Vendor ID, Model Name and Cache Size in MB)
 	-> Kernel Name, Kernel Release and Operating System Name.
 	-> The amount of memory configured into this computer and Free Memory 
+<<<<<<< HEAD
 	->Amount of time since the system was last booted (In Hours, Minutes, Seconds)
+=======
+	-> Amount of time since the system was last booted (In Hours, Minutes, Seconds)
+>>>>>>> 403b9d75e897f2829ae1d2ce2eb4216721ed7cec
 */
 
 /*
