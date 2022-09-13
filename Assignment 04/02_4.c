@@ -201,7 +201,7 @@ int main(int argc, char *argv[argc + 1])
 
 	if (argc != 2)
 	{
-		printf("Usage : %s <filepath>\n", argv[0]);
+		printf("Please input filepath along with execution command! \nUsage : %s <filepath>\n", argv[0]);
 		exit(1);
 	}
 
@@ -220,7 +220,7 @@ int main(int argc, char *argv[argc + 1])
 	long long int fileSize = file_stat.st_size;
 
 	/* Warning about infinite loop execution */
-	printf("***Program executes infinite loop!***\nEnter <ctrl+c> or <ctrl+\\> whenever you want to stop execution!\n");
+	printf("Warning : Program executes infinite loop! \nEnter <ctrl+c> or <ctrl+\\> whenever you want to stop execution!\n");
 	sleep(2);
 
 	/* file descriptor */
@@ -310,7 +310,7 @@ int main(int argc, char *argv[argc + 1])
 		printf(" Verification : Successful \n\n");
 	}
 
-	/* closing file , after mapping successfully file can be closed */
+	/* closing file */
 	close(fd);
 
 	/* Unmapping file */

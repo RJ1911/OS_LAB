@@ -152,8 +152,8 @@ int main(int argc, char *argv[argc + 1])
     // CHECK IF FILE PATH IS INPUTTED
     if (argc != 2)
     {
-        perror("Invalid no. of arguments\n");
-        perror("Input full path of the file to be transferred along with execution command \n");
+        printf("Input full path of the file to be transferred along with execution command \n");
+	printf("Usage : %s <filepath>\n",argv[0]);
         return EXIT_FAILURE;
     }
 
@@ -349,7 +349,7 @@ int sendFile(char *source_file, int destination)
         // reading from the file into the buffer
         long bufferRead = read(file_id, buffer, BUFFER_SIZE);
 
-        //-1 if error has occured
+        // read() returns -1 if any error has occured
         if (bufferRead < 0)
         {
             perror("Error Reading File!!!\n");

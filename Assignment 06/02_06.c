@@ -46,7 +46,8 @@
 	Output Description:
 	-> Processor Informations (Vendor ID, Model Name and Cache Size in MB)
 	-> Kernel Name, Kernel Release and Operating System Name.
-	-> The amount of memory configured into this computer and Free Memory Amount of time since the system was last booted (In Hours, Minutes, Seconds)
+	-> The amount of memory configured into this computer and Free Memory 
+	->Amount of time since the system was last booted (In Hours, Minutes, Seconds)
 */
 
 /*
@@ -87,7 +88,13 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define PROCESSOR_INFO "/proc/cpuinfo"  // "/proc/cpuinfo" contains information about processor
+#define KERNEL_INFO "/proc/version"	  // "/proc/version" contains information about kernel
+#define MEMORY_INFO "/proc/meminfo"     // "proc/meminfo" contains information about memory
+#define UPTIME "/proc/uptime"		  // "proc/uptime" contains information about boot time
 
+
+/* Function to parse processor Info from /proc/cpuinfo file */
 void processorInfo()
 {
 	FILE *fp;
@@ -99,9 +106,8 @@ void processorInfo()
 	char *vendorID;
 	char *modelName;
 	char *cacheSize;
-	char *processorInfo = (char *)malloc(1024 * 3);
 
-	fp = fopen("/proc/cpuinfo", "rb");
+	fp = fopen(PROCESSOR_INFO, "rb");
 	bytesRead = fread(buffer, 1, sizeof(buffer), fp);
 	fclose(fp);
 
@@ -144,16 +150,18 @@ void processorInfo()
 	float cache = atof(cacheSize);
 	cache /= 1024;
 
-	printf("Processor Info: \n");
+	printf("=====================Processor Info==========================================\n");
 	printf("Vendor ID: %s\n", vendorID);
 	printf("Model Name: %s\n", modelName);
 	printf("Cache Size: %.2fMB\n", cache);
 }
 
+
+/* Function to parse kernel Info from /proc/version file */
 void kernelInfo()
 {
 	FILE *fp;
-	fp = fopen("/proc/version", "rb");
+	fp = fopen(KERNEL_INFO, "rb");
 
 	char *kernelName = (char *)malloc(1024);
 	char *release = (char *)malloc(1024);
@@ -161,11 +169,12 @@ void kernelInfo()
 
 	fscanf(fp, "%s %s %s", kernelName, temp, release);
 
-	printf("\nKernel Info: \n");
+	printf("\n=====================Kernel Info==========================\n");
 	printf("Kernel Name: %s\n", kernelName);
 	printf("Kernel Release: %s\n", release);
 }
 
+/* Function to parse memory Info from /proc/meminfo file */
 void memoryInfo()
 {
 	FILE *fp;
@@ -179,7 +188,7 @@ void memoryInfo()
 	char *availableMemory;
 	char *processorInfo = (char *)malloc(1024 * 3);
 
-	fp = fopen("/proc/meminfo", "rb");
+	fp = fopen(MEMORY_INFO, "rb");
 	bytesRead = fread(buffer, 1, sizeof(buffer), fp);
 	fclose(fp);
 
@@ -219,31 +228,36 @@ void memoryInfo()
 	availableMemory = (char *)malloc(1024);
 	sscanf(match, "MemAvailable: %[^\n]", availableMemory);
 
-	printf("\nMemory Info: \n");
+	printf("\n====================Memory Info=================================\n");
 	printf("Total Memory: %s\n", totalMemory);
 	printf("Free Memory: %s\n", freeMemory);
 	printf("Available Memory: %s\n", availableMemory);
 }
 
+/* Function to parse boot time Info from /proc/uptime file */
 void bootTime()
 {
 	FILE *fp;
 
-	fp = fopen("/proc/uptime", "rb");
-	long long _uptime;
-	fscanf(fp, "%lld", _uptime);
-	int hours = _uptime / 3600;
-	_uptime = _uptime % 3600;
-	int minutes = _uptime / 60;
-	_uptime = _uptime % 60;
+	fp = fopen(UPTIME, "rb");
+	long long int *boot_info;
+	fscanf(fp, "%lld",boot_info );
+	long long int last_boot_time = *(boot_info);
+	
+	/*Converting boot time to hours , minutes and seconds */
+	int hours = last_boot_time / 3600;
+	last_boot_time = last_boot_time % 3600;
+	int minutes = last_boot_time/ 60;
+	last_boot_time = last_boot_time % 60;
 	int seconds = _uptime;
 
-	printf("\nBoot Info:\n");
-	printf("Uptime (HH:MM:SS): %2d:%2d:%2d\n", hours, minutes, seconds);
+	printf("\n=================Boot Time Info========================================\n");
+	printf("Time since last boot (HH:MM:SS): %2d:%2d:%2d\n", hours, minutes, seconds);
 }
 
 int main()
 {
+	
 	processorInfo();
 	kernelInfo();
 	memoryInfo();

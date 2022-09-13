@@ -45,13 +45,7 @@
     <Ctrl + \ > (for exiting the program)
 
     Sample Output :
-    ^C
-    Ha Ha , Not Stopping
-    ^C
-    Ha Ha , Not Stopping
-    ^C
-    Ha Ha , Not Stopping
-    ^\Quit
+                                                                                                                            Process Running , Waiting for signal!                                                                                                                                                                                                           Process Running , Waiting for signal!                                                                                   ^C                                                                                                                      Ha Ha , Not Stopping                                                                                                                                                                                                                            Process Running , Waiting for signal!                                                                                                                                                                                                           Process Running , Waiting for signal!                                                                                                                                                                                                           Process Running , Waiting for signal!                                                                                   ^C                                                                                                                      Ha Ha , Not Stopping                                                                                                                                                                                                                            Process Running , Waiting for signal!                                                                                                                                                                                                           Process Running , Waiting for signal!                                                                                                                                                                                                           Process Running , Waiting for signal!                                                                                                                                                                                                           Process Running , Waiting for signal!                                                                                                                                                                                                           Process Running , Waiting for signal!                                                                                                                                                                                                           Process Running , Waiting for signal!                                                                                   ^C                                                                                                                      Ha Ha , Not Stopping                                                                                                                                                                                                                            Process Running , Waiting for signal!                                                                                                                                                                                                           Process Running , Waiting for signal!                                                                                                                                                                                                           Process Running , Waiting for signal!                                                                                                                                                                                                           Process Running , Waiting for signal!                                                                                   ^\Quit
 
 
 */
@@ -79,12 +73,12 @@ int main(void)
         perror("\nUnable to catch SIGINT\n");
     }
 
-    /* A long long wait so that we can easily issue a signal to this process */
+    /* A long wait so that we can easily issue a signal to this process */
 
     while (1)
     {
+	printf("\nProcess Running , Waiting for signal! \n");
         /* Using sleep() function so that while loop executes after some time(i.e 1 second in this case) , to prevent while        loop from running infinitely which may consume most of the CPU */
-
         sleep(1);
     }
 

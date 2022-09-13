@@ -88,11 +88,14 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-#define FIFO1 "FIFO1" // naming of first named pipe
-#define FIFO2 "FIFO2" // naming of second named pipe
+/* FIFO pipes will be created in /tmp directory */
+#define FIFO1 "/tmp/FIFO1" // pathname of first named pipe
+#define FIFO2 "/tmp/FIFO2" // pathname of second named pipe
 
-#define BUFFER_FILE1 "process1_buffer" // the file received by process 1 is stored temporarily in this buffer
-#define BUFFER_FILE2 "process2_buffer" // the file received by process 2 is stored temporarily in this buffer
+/*  process buffer files will be created in /tmp directory */
+#define BUFFER_FILE1 "/tmp/process1_buffer" // path of the file received by process 1 is stored temporarily in this buffer
+#define BUFFER_FILE2 "/tmp/process2_buffer" // path the file received by process 2 is stored temporarily in this buffer
+
 #define BUFF_SIZE 1024                 // size of temprorary buffer to hold our 1GB sized file
 #define FIFO_MODE 0666                 // permission to Read or  Write for everyone
 
@@ -283,25 +286,25 @@ int main(int argc, char *argv[])
     // CHECK IF FILE PATH IS INPUTTED
     if (argc != 2)
     {
-        printf("Provide the path of the file to be transferred along with execution command \n");
+        printf("Provide the path of the file to be transferred along with execution command\n Usage : %s <filepath> \n",argv[0]);
         return EXIT_FAILURE;
     }
 
     /* Source file path of 1GB file to be transferred */
     char *inputFilePath = argv[1];
 
-    /*Creating FIFO1 for file transfer from process 1 to process 2 */
+    /*Creating FIFO1 named pipe for file transfer from process 1 to process 2 */
     int fifo1 = mkfifo(FIFO1, FIFO_MODE);
     if (fifo1 < 0)
     {
-        perror("Unable to create new FIFO1 .");
+        perror("Unable to create new FIFO1 pipe.");
     }
 
-    /*Creating FIFO2 for file transfer from process 2 to process 1 */
+    /*Creating FIFO2 named pipe for file transfer from process 2 to process 1 */
     int fifo2 = mkfifo(FIFO2, FIFO_MODE);
     if (fifo2 < 0)
     {
-        perror("Unable to create new FIFO2 .");
+        perror("Unable to create new FIFO2 pipe.");
     }
 
     /* Forking to create two processes , in between them files will be transferred */
