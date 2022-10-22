@@ -1,0 +1,192 @@
+Script started on 2022-10-17 12:59:40+05:30 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="131" LINES="28"]
+]0;wsl_ubuntu@RJ: ~ [01;32mwsl_ubuntu@RJ[00m:[01;34m~[00m$ PS1="\e[0;36m<<Team2>> \$ \e[m "
+[0;36m<<Team2>> $ [m mkdir [K[K[K[K[K[K    ls
+02_07.log  [0m[01;34mOS[0m  [01;34mOS-Assignments[0m  [01;34mfolder[0m  [01;34mtemp[0m  [01;34mtemp2[0m  [01;34mtemp3[0m
+[0;36m<<Team2>> $ [m mkdir "All My Cprogs Files"
+[0;36m<<Team2>> $ [m ls
+ 02_07.log  [0m[01;34m'All My Cprogs Files'[0m   [01;34mOS[0m   [01;34mOS-Assignments[0m   [01;34mfolder[0m   [01;34mtemp[0m   [01;34mtemp2[0m   [01;34mtemp3[0m
+[0;36m<<Team2>> $ [m cp Os[KS-Assignments/* "[K'A;[Kll My Cprogs Files'/[K
+[0;36m<<Team2>> $ [m ls[K[Kc[Kls [K[K[Kls -l
+total 28
+-rw-r--r-- 1 wsl_ubuntu wsl_ubuntu    0 Oct 17 12:59  02_07.log
+drwxr-xr-x 2 wsl_ubuntu wsl_ubuntu 4096 Oct 17 13:00 [0m[01;34m'All My Cprogs Files'[0m
+drwxr-xr-x 2 wsl_ubuntu wsl_ubuntu 4096 Sep 21 20:21  [01;34mOS[0m
+drwxr-xr-x 2 wsl_ubuntu wsl_ubuntu 4096 Oct 17 12:13  [01;34mOS-Assignments[0m
+drwxr-xr-x 2 wsl_ubuntu wsl_ubuntu 4096 Oct 17 12:24  [01;34mfolder[0m
+drwxr-xr-x 2 wsl_ubuntu wsl_ubuntu 4096 Oct 17 12:54  [01;34mtemp[0m
+drwxr-xr-x 3 wsl_ubuntu wsl_ubuntu 4096 Oct 17 12:20  [01;34mtemp2[0m
+drwxr-xr-x 2 wsl_ubuntu wsl_ubuntu 4096 Oct 17 12:23  [01;34mtemp3[0m
+[0;36m<<Team2>> $ [m cd 'All My Cprogs Files'/[K
+[0;36m<<Team2>> $ [m ls -l
+total 152
+-rw-r--r-- 1 wsl_ubuntu wsl_ubuntu  6211 Oct 17 13:00 02_2A.c
+-rw-r--r-- 1 wsl_ubuntu wsl_ubuntu 10024 Oct 17 13:00 02_2B.c
+-rw-r--r-- 1 wsl_ubuntu wsl_ubuntu 20120 Oct 17 13:00 02_3.c
+-rw-r--r-- 1 wsl_ubuntu wsl_ubuntu 11843 Oct 17 13:00 02_4.c
+-rw-r--r-- 1 wsl_ubuntu wsl_ubuntu  2918 Oct 17 13:00 02_5.c
+-rw-r--r-- 1 wsl_ubuntu wsl_ubuntu  1126 Oct 17 13:00 02_5.c:Zone.Identifier
+-rw-r--r-- 1 wsl_ubuntu wsl_ubuntu  3470 Oct 17 13:00 02_5_new.c
+-rw-r--r-- 1 wsl_ubuntu wsl_ubuntu 77648 Oct 17 13:00 2_1A.log
+-rw-r--r-- 1 wsl_ubuntu wsl_ubuntu  4343 Oct 17 13:00 2_1B.c
+-rw-r--r-- 1 wsl_ubuntu wsl_ubuntu  3560 Oct 17 13:00 2_6.c
+[0;36m<<Team2>> $ [m pwd
+/home/wsl_ubuntu/All My Cprogs Files
+[0;36m<<Team2>> $ [m date +"%d::%m::%y"
+17::10::22
+
+[0;36m<<Team2>> $ [m ls /home/[K | ec[K[Ke[Kwc -l
+1
+[0;36m<<Team2>> $ [m ls -l | grea[Ko[Kp \.c >> f[Kcif[K[KfileNmae[K[K[Kames.tc[Kxt
+[0;36m<<Team2>> $ [m cat cf[KF[KfileNames.txt 
+-rw-r--r-- 1 wsl_ubuntu wsl_ubuntu  6211 Oct 17 13:00 02_2A.c
+-rw-r--r-- 1 wsl_ubuntu wsl_ubuntu 10024 Oct 17 13:00 02_2B.c
+-rw-r--r-- 1 wsl_ubuntu wsl_ubuntu 20120 Oct 17 13:00 02_3.c
+-rw-r--r-- 1 wsl_ubuntu wsl_ubuntu 11843 Oct 17 13:00 02_4.c
+-rw-r--r-- 1 wsl_ubuntu wsl_ubuntu  2918 Oct 17 13:00 02_5.c
+-rw-r--r-- 1 wsl_ubuntu wsl_ubuntu  1126 Oct 17 13:00 02_5.c:Zone.Identifier
+-rw-r--r-- 1 wsl_ubuntu wsl_ubuntu  3470 Oct 17 13:00 02_5_new.c
+-rw-r--r-- 1 wsl_ubuntu wsl_ubuntu 77648 Oct 17 13:00 2_1A.log
+-rw-r--r-- 1 wsl_ubuntu wsl_ubuntu  4343 Oct 17 13:00 2_1B.c
+-rw-r--r-- 1 wsl_ubuntu wsl_ubuntu  3560 Oct 17 13:00 2_6.c
+-rw-r--r-- 1 wsl_ubuntu wsl_ubuntu     0 Oct 17 13:02 cfileNames.txt
+
+[0;36m<<Team2>> $ [m ls
+ 02_07.txt     [0m[01;32m02_07_8.sh[0m   [01;32m8[0m     [01;32m8_temp[0m    [01;34m'All My Cprogs Files'[0m   [01;34mOS-Assignments[0m   [01;32ma.out[0m      [01;34mfolder[0m   [01;34mtemp2[0m
+ [01;32m02_07_10.sh[0m   [01;32m02_07_9.sh[0m   8.c   8_temp.c   [01;34mOS[0m                     a.log            file.txt   [01;34mtemp[0m     [01;34mtemp3[0m
+[0;36m<<Team2>> $ [m cat 02_07_8.sh
+#! /bin/bash
+
+# Assignment 7 : Question 8 . Write a script for addition of two numbers for real numbers also.
+
+# Execution Command : bash 02_07_8.sh
+
+# Sample input :
+# a = 7.1 b = 2.2
+# Sample output :
+# sum = 9.3
+
+echo "Enter 1st no. : "
+read a 
+echo "Enter 2nd no. : "
+read b
+echo sum = `echo $a + $b | bc`
+[0;36m<<Team2>> $ [m bash 02_07_8.sh
+Enter 1st no. : 
+3.4
+Enter 2nd no. : 
+4.5
+sum = 7.9
+[0;36m<<Team2>> $ [m cat 0[K[K[K[K[K 
+[0;36m<<Team2>> $ [m 
+[0;36m<<Team2>> $ [m cat 02_07_9.sh
+#! /bin/bash
+# Assignment 7 : Question 9 . Write a script to convert string lower to upper and upper to lower from a file.
+
+# Execution Command : bash 02_07_9.sh
+
+# Sample input :
+# <input file name>
+# Sample output :
+# <updated file text>
+
+# Function to get File
+getFile(){
+    # Reading txtFileName to convert it's content
+    echo -n "Enter File Name:"
+    read txtFileName
+    # Checking if file exist
+    if [ ! -f $txtFileName ]; then
+        echo "File Name $txtFileName does not exists."
+        exit 1
+    fi
+}
+
+clear
+  echo "1. Uppercase to Lowercase "
+  echo "2. Lowercase to Uppercase"
+  echo "3. Exit"
+  echo -n "Enter your Choice(1-3):"
+  read Ch
+
+  case "$Ch" in
+    1) 
+      # Function Call to get File 
+      getFile    
+      # Converting to lower case if user chose 1     
+      echo "Converting Upper-case to Lower-Case "
+      tr '[A-Z]' '[a-z]' <$txtFileName
+    ;;
+
+    2)
+      # Function Call to get File 
+      getFile
+      # Converting to upper case if user chose 2
+      echo "Converting Lower-Case to Upper-Case "
+      tr '[a-z]' '[A-Z]' <$txtFileName
+    ;;
+    
+
+    *) # exiting for all other cases
+        echo "Exiting..."
+        exit
+    ;;
+  esac
+[0;36m<<Team2>> $ [m bash 02_08[K7_9.sh
+[H[2J[3J1. Uppercase to Lowercase 
+2. Lowercase to Uppercase
+3. Exit
+Enter your Choice(1-3):1
+Enter File Name:file.txt
+Converting Upper-case to Lower-Case 
+this is a file.
+
+[0;36m<<Team2>> $ [m 
+[0;36m<<Team2>> $ [m 
+[0;36m<<Team2>> $ [m ;[Kcat 02_-7[K[K[K_07_10.sh
+#! /bin/bash
+
+# Assignment 7 : Question 10 . Read ‘n’ and generate a pattern given below.
+#				1
+#				1 2
+#				1 2 3
+#				1 2 3 4
+
+# Execution Command : bash 02_07_10.sh
+
+# Sample input :
+# <enter n>
+# Sample output :
+# <generate pattern>
+
+echo "Enter n : "
+read rows
+for((i=1; i<=rows; i++))
+do
+  for((j=1; j<=i; j++))
+  do
+    echo -n "$number "
+    number=$((number + 1))
+  done
+  number=1
+  echo
+done
+[0;36m<<Team2>> $ [m 
+[0;36m<<Team2>> $ [m 
+[0;36m<<Team2>> $ [m bash 02-[K_07_10.sh
+Enter n : 
+10
+ 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5 
+1 2 3 4 5 6 
+1 2 3 4 5 6 7 
+1 2 3 4 5 6 7 8 
+1 2 3 4 5 6 7 8 9 
+1 2 3 4 5 6 7 8 9 10 
+[0;36m<<Team2>> $ [m exit
+exit
+
+Script done on 2022-10-22 11:36:55+05:30 [COMMAND_EXIT_CODE="0"]
+
